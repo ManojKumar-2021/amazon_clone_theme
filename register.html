@@ -53,7 +53,7 @@
           </div>
           <div class="drawer-body">
             <h6 class="text-muted text-uppercase">Help & Settings</h6>
-            <a href="#" class="btn btn-outline-success btn-sm my-2">Your Account</a>
+            <a href="your_account.html" class="btn btn-outline-success btn-sm my-2">Your Account</a>
             <a href="login.html" class="btn btn-warning btn-sm my-2">Sign in</a>
 
 
@@ -160,8 +160,8 @@
               </a>
               <div class="dropdown-menu px-3 " aria-labelledby="userAccount">
                 <div class="d-flex row justify-content-center ">
-                  <a href="login.html" class="btn btn-warning w-75 btn-sm ">Sign in</a>
-                  <small>New customer?<a href="#">Start here.</a></small>
+                  <a href="#" class="btn btn-warning w-75 btn-sm ">Sign in</a>
+                  <small>New customer?<a href="register.html">Start here.</a></small>
                 </div>
               </div>
             </li>
@@ -190,32 +190,60 @@
       <div class="card-body">
         <h4 class="card-title">Register</h4>
         <!--  register form -->
-        <form novalidate>
-            <div class="mb-3">
-                <label for="userName" class="form-label">Your Name:</label>
-                <input type="email" name="name" class="form-control" placeholder="abc" id="userName">
-              </div>
+        <form class="needs-validation" method="post" action="#" novalidate>
+          <div class="mb-3">
+            <label for="userName" class="form-label">Your Name:</label>
+            <input type="text" name="name" class="form-control" placeholder="abc" id="userName" required minlength="10">
+
+            <div class="valid-feedback">
+              <i class="fa-solid fa-circle-check"></i> ok
+            </div>
+            <div class="invalid-feedback">
+              <i class="fa-solid fa-triangle-exclamation"></i> some Error in your name
+            </div>
+
+          </div>
 
           <div class="mb-3">
             <label for="userEmail" class="form-label">Email:</label>
             <input type="email" name="email" class="form-control" placeholder="abc@abc.com" id="userEmail"
-              aria-describedby="emailHelp">
-            <small id="emailHelp" class="form-text text-muted"><i class="fa-solid fa-info text-primary"></i> We'll never share your email with anyone else.</small>
+              aria-describedby="emailHelp" required>
+            <small id="emailHelp" class="form-text text-muted"><i class="fa-solid fa-info text-primary"></i> We'll never
+              share your email with anyone else.</small>
+            <div class="valid-feedback">
+              <i class="fa-solid fa-circle-check"></i> ok
+            </div>
+            <div class="invalid-feedback">
+              <i class="fa-solid fa-triangle-exclamation"></i> some Error in Email
+            </div>
           </div>
 
           <div>
             <label for="userPassword" class="form-label">Password:</label>
             <input type="password" name="password" class="form-control" placeholder="******" id="userPassword"
-              aria-describedby="passwordHelp">
+              aria-describedby="passwordHelp" required minlength="6">
             <small id="passwordHelp" class="form-text text-muted"><i class="fa-solid fa-info text-primary"></i>
-                Password must be at least 6 characters</small>
+              Password must be at least 6 characters</small>
+            <div class="valid-feedback">
+              <i class="fa-solid fa-circle-check"></i> ok
+            </div>
+            <div class="invalid-feedback">
+              <i class="fa-solid fa-triangle-exclamation"></i> some Error in Password
+            </div>
           </div>
 
           <div>
-            <label for="userPassword" class="form-label">Enter Again Password:</label>
+            <label for="userPassword" class="form-label">Password Again:</label>
             <input type="password2" name="password2" class="form-control" placeholder="******" id="userPassword2"
-              aria-describedby="passwordHelp2">
-            <small id="passwordHelp2" class="form-text text-muted"><i class="fa-solid fa-info text-primary"></i> Password must match the above.</small>
+              aria-describedby="passwordHelp2" required minlength="6">
+            <small id="passwordHelp2" class="form-text text-muted"><i class="fa-solid fa-info text-primary"></i>
+              Password must match the above.</small>
+            <div class="valid-feedback">
+              <i class="fa-solid fa-circle-check"></i> ok
+            </div>
+            <div class="invalid-feedback">
+              <i class="fa-solid fa-triangle-exclamation"></i> some Error in re-type Password
+            </div>
           </div>
 
           <button type="submit" class="btn btn-warning w-100 bt-sm shadow rounded mt-3">Register</button>
@@ -223,8 +251,9 @@
 
         <!-- or seperator -->
         <hr>
-        <p class="text-center">Already have an account? <a href="login.html" class="btn btn-outline-primary">Sign in <i class="fa-solid fa-caret-right"></i>
-        </a></p>
+        <p class="text-center">Already have an account? <a href="login.html" class="btn btn-outline-primary">Sign in <i
+              class="fa-solid fa-caret-right"></i>
+          </a></p>
         <a href="#" class="btn btn-outline-success btn-sm mt-2 w-100"><i class="fa-brands fa-google"></i> Sign in with
           Google</a>
         <a href="#" class="btn btn-outline-primary btn-sm mt-2 w-100"><i class="fa-brands fa-facebook-f"></i> Sign in
@@ -284,6 +313,29 @@
 
   <!-- custom javascript -->
   <script src="js/custom.js"></script>
+
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+      'use strict'
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+              event.preventDefault()
+              event.stopPropagation()
+            }
+
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+  </script>
 </body>
 
 </html>
